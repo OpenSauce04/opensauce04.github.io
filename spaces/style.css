@@ -1,0 +1,104 @@
+:root {
+  --topbarcolour: #008f7a;
+  --bottombarcolour: linear-gradient(#668f8955, #b0d4d4, #b0d4d4);
+
+  --barpadding: 10px;
+  
+  --bottombarheight: 65px;
+  --topbarheight: 40px;
+}
+body {
+  margin: 0;
+
+  background-color: #d4fcff;
+
+  overflow-x: hidden;
+}
+
+.content {
+  width: calc(100vw - 60px);
+  height: calc((100vh - ((var(--bottombarheight) + var(--barpadding)) + (var(--topbarheight) + var(--barpadding)))));
+  padding: 30px;
+  padding-top: 0;
+
+  overflow-y: scroll;
+}
+
+.topbar {
+  left: 0;
+  top: 0;
+  background-color: var(--topbarcolour);
+  height: calc(var(--topbarheight) - var(--barpadding));
+  width: calc(100vw - calc(var(--barpadding) * 2));
+
+  padding: var(--barpadding);
+
+  box-shadow: 0 0 10px grey;
+}
+
+.bottombar {
+  position: absolute;
+  left: 0;
+  top: calc(100vh - calc(var(--bottombarheight) + var(--barpadding)));
+  background-image: var(--bottombarcolour);
+  height: calc(var(--bottombarheight) - var(--barpadding));
+  width: calc(100vw - calc(var(--barpadding) * 2));
+
+  padding: var(--barpadding);
+
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+
+  box-shadow: 0 3px 10px grey;
+  backdrop-filter: blur(10px);
+}
+.bottombar img {
+  object-fit: contain;
+  height:90%;
+  width:auto;
+  padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: -2px;
+
+  background-color: #00000022;
+  
+  filter: drop-shadow(0 0 4px #00000066);
+}
+
+.searchbutton {
+  background-color: #00000055;
+  border-radius: 7px;
+  padding-top: 6px;
+  padding-left: 4px;
+  padding-right: 3px;
+  padding-bottom: 0px;
+  top: 3px;
+}
+.searchbutton img {
+  height: 75%;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+th, td {
+  background-color: #668f8955;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 20px;
+
+  box-shadow: 0 0px 10px #00000077;
+}
+
+/*
+.sidebar {
+  left: 0;
+  top: 0;
+  background-color: var(--sidebarcolour);
+  height: calc(calc(100vh - 70px) - var(--barpadding));
+  width: calc(90px - calc(var(--barpadding) * 2));
+}
+*/
