@@ -1,0 +1,39 @@
+<script>
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+
+  function calcCyclus(p) {
+    currentDate = new Date()
+    return 15*Math.sin((2*Math.PI*(
+      parseFloat(currentDate.toUTCString().substring(17,19)) + // Hour
+      parseFloat(currentDate.toUTCString().substring(20,22)/60) + // Minute
+      parseFloat(currentDate.toUTCString().substring(23,25)/3600))) // Second
+      /p) // Pantheon Rank
+  }
+
+  function format(theNumber)
+  {
+    if(theNumber > 0){
+      return "+" + theNumber;
+    } else {
+      return theNumber.toString();
+    }
+  }
+
+  async function startLoop() {
+    while(true) {
+      document.open()
+      document.write("<link rel='stylesheet' href='style.css'>")
+      document.write("<h1>Cyclus Tracker</h1>")
+      document.write("<b>")
+      document.write("<img src='diamond.png'></img>Diamond: " + format(calcCyclus(3).toFixed(2)) + "%")
+      document.write("<br><img src='ruby.png'></img>Ruby: " + format(calcCyclus(12).toFixed(2)) + "%")
+      document.write("<br><img src='jade.png'></img>Jade: " + format(calcCyclus(24).toFixed(2)) + "%")
+      document.write("</b>")
+      await sleep(1000)
+    }
+  }
+  startLoop()
+</script>
